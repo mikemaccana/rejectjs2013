@@ -6,9 +6,21 @@ From [Reject.JS 2013](http://rejectjs.org/speakers.html#mikemaccana):
 
 > We’re missing out: beyond the obvious, there’s a world of interesting stuff you can and should be doing with ES5: safe extension of inbuilt methods, mechanisms for live binding data and DOM, and a whole host of techniques to make your code shorter and more readable. Best of all, it’s already built into your browser and node.
 
-## View slides locally
+## Example code
+
+See the code-examples folder.
+
+## Links
+
+[Annotated ES5 spec](http://es5.github.io/)
+[Object.defineProperty (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+[Brenden Eich on Extending Inbuilts](http://vimeo.com/66711027)
+[Agave](http://agavejs.org)
+[Ractive](http://ractivejs.org)
 
 This is a [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)
+
+## View slides locally
 
 First, ensure you have the following installed:
 
