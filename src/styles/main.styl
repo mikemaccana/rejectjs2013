@@ -2,9 +2,11 @@
 
 // variables!
 
-slide_width = 640px
-slide_height = 480px
-slide_background = #eaeaea
+darkgrey = #222
+brightGreen = #4dbf9f
+slide_width = 100%
+slide_height = 100%
+slide_background = darkgrey
 
 slide_transition_length = .6s
 slide_transition_easing = ease
@@ -15,7 +17,7 @@ bullet_transition_length = .3s
 bullet_transition_easing = ease
 bullet_transition_translate_x = 16px
 
-// Segoe UI
+// Mike's customizations
 
 @font-face
   font-family: Fuse-Segoe-UI
@@ -26,13 +28,47 @@ bullet_transition_translate_x = 16px
   font-style: normal
   font-weight: 400
 
-// base
+@font-face
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local("Open Sans Bold"),
+    local("OpenSans-Bold"),
+    url(https://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzJ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
 
+@font-face
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"),
+    local("OpenSans-Light"),
+    url(https://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTZ1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+
+@font-face
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("Open Sans"),
+    local("OpenSans"),
+    url(https://themes.googleusercontent.com/static/fonts/opensans/v6/K88pR3goAWT7BTt32Z01mz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+
+@font-face
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 800;
+  src:
+    local("Open Sans Extrabold"),
+    local("OpenSans-Extrabold"),
+    url(https://themes.googleusercontent.com/static/fonts/opensans/v6/EInbV5DfGHOiMmvb1Xr-hp1r3JsPcQLi8jytr04NNhU.woff) format('woff');
+
+// base
 *
   box-sizing: border-box
   margin: 0
   padding: 0
-  font-family: "Fuse-Segoe-UI"
+
 
 // bespoke.js layout styles
 
@@ -50,6 +86,9 @@ article
     perspective: 600px
 
 .bespoke-slide
+  position: absolute
+  top: 0
+  left: 0
   transition: all slide_transition_length slide_transition_easing
   transform-origin: 50% 50% ((slide_width / 2) * -1)
   backface-visibility: hidden
@@ -60,11 +99,6 @@ article
   text-align: center
   width: slide_width
   height: slide_height
-  position: absolute
-  top: 50%
-  margin-top: (slide_height / 2) * -1
-  left: 50%
-  margin-left: (slide_width / 2) * -1
   background: slide_background
   padding: 40px
   border-radius: 0
@@ -109,9 +143,12 @@ code
 // content styles
 
 body
-  font-family: helvetica, arial, sans-serif
+  font-family: "Open Sans", "Fuse-Segoe-UI", helvetica, arial, sans-serif
   font-size: 18px
-  color: #404040
+  color: whiteSmoke;
+
+h1, h2, h3
+  font-weight: 100
 
 h1
   font-size: 72px
@@ -128,7 +165,7 @@ h3
   font-size: 24px
   font-weight: normal
   margin-bottom: 24px
-  color: #606060
+  color: whiteSmoke
 
 hr
   visibility: hidden
@@ -145,5 +182,5 @@ p
   line-height: 22px
 
 a
-  color: #0093CC
+  color: brightGreen
   text-decoration: none

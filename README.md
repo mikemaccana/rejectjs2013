@@ -18,10 +18,9 @@ First, ensure you have the following installed:
 
 Then, install dependencies and run the preview server:
 
-```bash
-$ npm install && bower install
-$ grunt server
-```
+    $ npm install
+    $ bower install
+    $ grunt server
 
 ## License:
 
