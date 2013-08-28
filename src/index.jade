@@ -36,14 +36,14 @@ html
         hr
         code.language-javascript
           pre.
-            var users = ['Apparat', 'Boy', 'Kraftklub']
-            for (var i = 0; i < users.length; i++) {
-              var user = users[i],
+            var bands = ['Apparat', 'Boy', 'Kraftklub'];
+            for (var i = 0; i < bands.length; i++) {
+              var band = bands[i],
                 button = document.createElement('button');
               button.addEventListener('click', function(event){
-                alert(user);
+                alert(band);
               });
-              button.appendChild(document.createTextNode(user));
+              button.appendChild(document.createTextNode(band));
               document.body.appendChild(button);
             }
 
@@ -55,16 +55,16 @@ html
         hr
         code.language-javascript
           pre.
-            var users = ['Apparat', 'Boy', 'Kraftklub']
-            for (var i = 0; i < users.length; i++) {
-              var user = users[i],
+            var bands = ['Apparat', 'Boy', 'Kraftklub'];
+            for (var i = 0; i < bands.length; i++) {
+              var band = bands[i],
                 button = document.createElement('button');
-              (function(user){
+              (function(band){
                 button.addEventListener('click', function(event){
-                  alert(user);
+                  alert(band);
                 });
-              })(user);
-              button.appendChild(document.createTextNode(user));
+              })(band);
+              button.appendChild(document.createTextNode(band));
               document.body.appendChild(button);
             }
 
@@ -72,11 +72,11 @@ html
         h1 ES5 version
         code.language-javascript
           pre.
-            ['Apparat', 'Boy', 'Kraftklub'].forEach(function(user){
+            ['Apparat', 'Boy', 'Kraftklub'].forEach(function(band){
               var button = document.createElement('button');
-              button.appendChild(document.createTextNode(user));
+              button.appendChild(document.createTextNode(band));
               button.addEventListener('click', function(event){
-                alert(user);
+                alert(band);
               });
               document.body.appendChild(button);
             })
