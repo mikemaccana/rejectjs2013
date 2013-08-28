@@ -3,26 +3,34 @@ define(function(require){
   var template = require('text!template.mustache')
 
   var testData = {
-    element: '.demo',
     _user: 'Dave',
-    messages: { total: 11, unread: 4 }
+    _messages: { total: 11, unread: 4 }
   }
 
-  Object.defineProperty(testData, "user", {
-    get : function(){ return testData._user; },
-    set : function(newValue){
-      testData._user = newValue;
-      binding.set('user', newValue)
-    },
-    enumerable : true,
-    configurable : true
-  });
-
-  var binding = new Ractive({
-    el: testData.element,
+  var demoBinding = new Ractive({
+    el: '.demo',
     template: template,
     data: testData
   });
 
+  var livebind = function(object, binding, properties){
+    properties.forEach(function(property){
+      var hiddenProperty = '_'+property
+      Object.defineProperty(object, property, {
+        get : function(){ return testData[hiddenProperty]; },
+        set : function(newValue){
+          testData[hiddenProperty] = newValue;
+          binding.set(property, newValue)
+        },
+        enumerable : true,
+        configurable : true
+      });
+    })
+  }
+
+  livebind(testData, demoBinding, ['user', 'messages'])
+
+  // testData.user = 'steve'
+  // testData.messages = { total: 11, unread: 8 }
   debugger;
 })
