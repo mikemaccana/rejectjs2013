@@ -1,14 +1,14 @@
 # Welcome our new ES5 Overlords
 
-My [Reject.JS 2013](http://rejectjs.org/speakers.html#mikemaccana) slides.
+From [Reject.JS 2013](http://rejectjs.org/speakers.html#mikemaccana):
 
-*While we constantly pay attention to new utility libraries, MVC frameworks, and other well-publicised tools, most of our non-library coding hasn’t changed since ES3.*
+> While we constantly pay attention to new utility libraries, MVC frameworks, and other well-publicised tools, most of our non-library coding hasn’t changed since ES3.
 
-*We’re missing out: beyond the obvious, there’s a world of interesting stuff you can and should be doing with ES5: safe extension of inbuilt methods, mechanisms for live binding data and DOM, and a whole host of techniques to make your code shorter and more readable. Best of all, it’s already built into your browser and node.*
-
-This is a [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)
+> We’re missing out: beyond the obvious, there’s a world of interesting stuff you can and should be doing with ES5: safe extension of inbuilt methods, mechanisms for live binding data and DOM, and a whole host of techniques to make your code shorter and more readable. Best of all, it’s already built into your browser and node.
 
 ## View slides locally
+
+This is a [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)
 
 First, ensure you have the following installed:
 

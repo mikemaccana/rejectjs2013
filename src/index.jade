@@ -40,7 +40,7 @@ html
             for (var i = 0; i < bands.length; i++) {
               var band = bands[i],
                 button = document.createElement('button');
-              button.addEventListener('click', function(event){
+              button.addEventListener('click', function(){
                 alert(band);
               });
               button.appendChild(document.createTextNode(band));
@@ -60,7 +60,7 @@ html
               var band = bands[i],
                 button = document.createElement('button');
               (function(band){
-                button.addEventListener('click', function(event){
+                button.addEventListener('click', function(){
                   alert(band);
                 });
               })(band);
@@ -75,7 +75,7 @@ html
             ['Apparat', 'Boy', 'Kraftklub'].forEach(function(band){
               var button = document.createElement('button');
               button.appendChild(document.createTextNode(band));
-              button.addEventListener('click', function(event){
+              button.addEventListener('click', function(){
                 alert(band);
               });
               document.body.appendChild(button);
@@ -83,10 +83,9 @@ html
 
       section
         ul
-          li Removed 1/3rd of the code
-          li scope
-          li nice name for each item
-          li looks nice
+          li 1/3rd less code
+          li Looks nice
+          li Functions more natural for JS iteration - no need for IIFE fix
 
       section
         h1 Let's do it for more things!
@@ -105,7 +104,7 @@ html
         h2 ES3: Non-native methods appear during iteration
         code.language-javascript
           pre.
-            Object.prototype.oldStyleMethod = function oldStyleMethod (){}
+            Object.prototype.oldStyleMethod = function oldStyleMethod (){};
             var myobject = {};
             for (var key in myobject) { console.log(key) };
 
@@ -113,16 +112,14 @@ html
         h2 ES3: But native methods don't
         code.language-javascript
           pre.
-            console.log(Object.prototype.toString)
-            function toString() { [native code] }
-            console.log(Object.prototype.oldStyleMethod)
-            function oldStyleMethod(){}
+            console.log(Object.prototype.toString);
+            function toString() { [native code] };
 
       section
-        h2 Added methods were always enumerable in ES3
+        h2 Added methods are always enumerable in ES3
         ul
           li Methods appeared in regular for loops
-          li Nobody changed their for loops
+          li Entire universe did not make for loops to avoid inherited properties
 
       section
         h2 ES5: Non enumerable methods can be added
