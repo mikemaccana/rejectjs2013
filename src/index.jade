@@ -35,22 +35,60 @@ html
 
       section
         h1 Some basic JS
+        hr
+        code.language-javascript
+          pre.
+            var users = ['Apparat', 'Boy', 'Kraftklub']
+            for (var i = 0; i < users.length; i++) {
+              var user = users[i],
+                button = document.createElement('button');
+              button.addEventListener('click', function(event){
+                alert(user);
+              });
+              button.appendChild(document.createTextNode(user));
+              document.body.appendChild(button);
+            }
 
       section
         h1 Doesn't work.
 
       section
-        h1 Some basic JS try 2
+        h2 Some basic JS try 2
+        hr
+        code.language-javascript
+          pre.
+            var users = ['Apparat', 'Boy', 'Kraftklub']
+            for (var i = 0; i < users.length; i++) {
+              var user = users[i],
+                button = document.createElement('button');
+              (function(user){
+                button.addEventListener('click', function(event){
+                  alert(user);
+                });
+              })(user);
+              button.appendChild(document.createTextNode(user));
+              document.body.appendChild(button);
+            }
 
       section
         h1 ES5 version
+        code.language-javascript
+          pre.
+            ['Apparat', 'Boy', 'Kraftklub'].forEach(function(user){
+              var button = document.createElement('button');
+              button.appendChild(document.createTextNode(user));
+              button.addEventListener('click', function(event){
+                alert(user);
+              });
+              document.body.appendChild(button);
+            })
 
       section
-      ul
-        li Removed 1/3rd of the code
-        li scope
-        li nice name for each item
-        li looks nice
+        ul
+          li Removed 1/3rd of the code
+          li scope
+          li nice name for each item
+          li looks nice
 
       section
         h1 Let's do it for more things!
@@ -66,27 +104,48 @@ html
         sub *History may be more recent than expected
 
       section
-        h1 No proper method hiding
+        h2 ES3: Non-native methods appear during iteration
+        code.language-javascript
+          pre.
+            Object.prototype.oldStyleMethod = function oldStyleMethod (){}
+            var myobject = {};
+            for (var key in myobject) { console.log(key) };
+
+      section
+        h2 ES3: But native methods don't
+        code.language-javascript
+          pre.
+            console.log(Object.prototype.toString)
+            function toString() { [native code] }
+            console.log(Object.prototype.oldStyleMethod)
+            function oldStyleMethod(){}
+
+      section
+        h2 Added methods were always enumerable in ES3
         ul
           li Methods appeared in regular for loops
           li Nobody changed their for loops
 
       section
+        h2 ES5: Non enumerable methods can be added
+        p Requires native ES5 (not shimmable)
+        code.language-javascript
+          pre.
+            Object.defineProperty( Object.prototype, "newStyleMethod", {
+              value: function newStyleMethod(){},
+              enumerable: false
+            });
+            for (var key in myobject) { console.log(key) };
+
+      section
         h1 Generic names
         ul
-          li String.namespace()
-          li Array.find()
-
-      section
-        h1 Now
-
-      section
-        h1 enumerable: false
-        p ES5 build in. not shimmable.
+          li String.prototype.namespace()
+          li Array.prototype.find()
 
       section
         h1 Prefixing
-        p User settable prefix
+        p Set a sensible prefix
 
       section
         ul
@@ -95,62 +154,21 @@ html
           li Methods, regular for loops. ES5 only
 
       section
-        h1 "You can and should be doing that"
-        h2 Brenden Eich Jquery UK 2013
+        quote "You can and should be doing that"
+        author Brenden Eich Jquery UK 2013
 
       section
         h1 More magic: Live Binding
 
       section
+        h2 Two parts
         ul
-          li http://twitter.com/mikemaccana
-          li http://github.com/mikemaccana
-          li http://mikemaccana.com
+          li Object.defineProperty to call binding when data changes
+          li Data-DOM binding
 
       section
-        h1 Hello World
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
-        ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-
-      section
-        h2 Syntax Highlighting
-        h3.bullet Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
-        hr
-        code.language-javascript
-          pre.
-            bespoke.horizontal.from('article', {
-              bullets: 'li, .bullet',
-              hash: true,
-              state: true
-            });
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
-
-      section(data-bespoke-state='emphatic')
-        h2 Emphatic Slide!
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
-
-      section
-        h2.bullet Just the beginning...
-        hr
-        ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        hr
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+        h1 Thanks
+        p <a href="http://twitter.com/mikemaccana">@mikemaccana</a>
 
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')
     script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
