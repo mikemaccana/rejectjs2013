@@ -15,21 +15,20 @@ html
     article
 
       section
-        h1 Welcome our new ES5 Overlords
+        h1 Welcome our <br/><strong>new ES5 Overlords</strong>
 
       section
         h1 Hello
 
       section
-        h1 ES5
+        h1 <strong>ES5</strong>
         ul
           li Some new methods
-          li Some of which are shimmable
-          li Some of which are not
-          li Convenience
+          li Which are convenient
+          li That we ignore
 
       section
-        h1 There is magic in here.
+        h1 There is <strong>magic</strong> in ES5
 
       section
         h1 Some JS
@@ -52,7 +51,7 @@ html
         h1 Doesn't work.
 
       section
-        h2 Some basic JS (try #2)
+        h2 Some basic JS (fixed)
         hr
         code.language-javascript
           pre.
@@ -92,10 +91,10 @@ html
         h1 Let's do it for more things!
 
       section
-        h1 Safe Extension of Inbuilt Methods
+        h1 <strong>Safe</strong> Extension of Inbuilt Methods
 
       section
-        h1 No, really
+        h1 No, <strong>really</strong>
 
       section
         h1 Quick History* Lesson
@@ -119,11 +118,12 @@ html
       section
         h2 Added methods are always enumerable in ES3
         ul
-          li Methods appeared in regular for loops
-          li Entire universe did not make for loops to avoid inherited properties
+          li So they appear in 'for' loops
+          li Works if the <strong>entire universe</strong> changes the way they do 'for' loops
+          li Surprisingly this not happen
 
       section
-        h2 ES5: Non enumerable methods can be added
+        h2 ES5: <strong>Non enumerable methods</strong> can be added
         p Requires native ES5 (not shimmable)
         code.language-javascript
           pre.
@@ -144,11 +144,27 @@ html
         p Set a sensible prefix
 
       section
-        ul
-          li Underscore - no methods
-          li Prototype & Sugar - Have methods, but change every for loop and still run into conflicts
-          li Methods, regular for loops. ES5 only
-
+        table
+          tr
+            td
+            td Underscore
+            td <strong>Agave (ES5 only)</strong>
+            td Sugar
+          tr
+            td Methods
+            td No
+            td Yes
+            td Yes
+          tr
+            td Regular 'for' loops
+            td Yes
+            td Yes
+            td No
+          tr
+            td Conflict-free
+            td Yes
+            td Yes
+            td No
       section
         i "I've been extending native objects with prefixed methods to avoid conflicts. Is that OK?"
         h2 <i>"You can do that. You should do that."</i>
@@ -192,8 +208,8 @@ html
         h1 <strong>ES5-only</strong> is coming
         ul
           li For many, it's already here
-          li Use ES5 methods directly (no need for big function libraries)
-          li Don't be scared to extend inbuilts - just name things correctly
+          li Use ES5 methods directly
+          li Don't be scared to extend inbuilts
           li Start investigating what can't be shimmed
 
       section
