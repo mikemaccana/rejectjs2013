@@ -160,9 +160,42 @@ html
 
       section
         h2 Two parts
+        ol
+          li A <strong>data → DOM binding</strong> (I like mustache, so Ractive.js).
+          li <strong>Object.defineProperty</strong> to call binding when data changes
+
+      section
+        h3 Live binding with defineProperty and Ractive
+        code.language-javascript
+          pre.
+            var livebind = function(object, binding, properties){
+              properties.forEach(function(property){
+                var hiddenProperty = '_'+property
+                Object.defineProperty(object, property, {
+                  get: function(){ return testData[hiddenProperty]; },
+                  set: function(newValue){
+                    testData[hiddenProperty] = newValue;
+                    binding.set(property, newValue)
+                  },
+                  enumerable: true,
+                  configurable: true
+                });
+              })
+            }
+
+      section
+        h2 Note
+        ol
+          li This is top level only
+          li But it's still pretty cool
+
+      section
+        h1 That's it
         ul
-          li Object.defineProperty to call binding when data changes
-          li Data-DOM binding
+          li IE8 is the only popular ES3 browser left
+          li Using ES5 methods now can make your code cleaner
+          li Don't be scared to extend inbuilts - just name things correctly
+          li Start investigating what can't be shimmed
 
       section
         h1 Thanks
