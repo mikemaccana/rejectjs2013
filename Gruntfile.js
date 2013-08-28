@@ -54,6 +54,11 @@ module.exports = function(grunt) {
             '!<%= coffee.src.files[0].src %>'
           ],
           dest: 'public/'
+        },{
+          expand: true,
+          cwd: 'src/fonts/',
+          src: '**/*',
+          dest: 'public/fonts/'
         }]
       }
     },
