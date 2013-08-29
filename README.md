@@ -1,6 +1,6 @@
 # Welcome our new ES5 Overlords
 
-From [Reject.JS 2013](http://rejectjs.org/speakers.html#mikemaccana):
+A presentation from [Reject.JS 2013](http://rejectjs.org/speakers.html#mikemaccana).
 
 > While we constantly pay attention to new utility libraries, MVC frameworks, and other well-publicised tools, most of our non-library coding hasn’t changed since ES3.
 
@@ -12,11 +12,11 @@ See the code-examples folder.
 
 ## Links
 
-[Annotated ES5 spec](http://es5.github.io/)
-[Object.defineProperty (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
-[Brenden Eich on Extending Inbuilts](http://vimeo.com/66711027)
-[Agave](http://agavejs.org)
-[Ractive](http://ractivejs.org)
+ * [Annotated ES5 spec](http://es5.github.io/)
+ * [Object.defineProperty (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+ * [Brenden Eich on Extending Inbuilts](http://vimeo.com/66711027)
+ * [Agave - cleaner, simpler JS for ES5](http://agavejs.org)
+ * [Ractive - simple mustache-based data binding ](http://ractivejs.org)
 
 This is a [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)
 
