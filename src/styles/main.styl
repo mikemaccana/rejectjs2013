@@ -10,6 +10,9 @@ slide_width = 100%
 slide_height = 100%
 slide_background = darkgrey
 
+// This seems to be correspond with an A4, landscape page height in Chrome
+slide_height_print = 670px
+
 slide_transition_length = .6s
 slide_transition_easing = ease
 slide_transition_translate_x = 0
@@ -18,6 +21,10 @@ slide_transition_rotate_y = 90deg
 bullet_transition_length = .3s
 bullet_transition_easing = ease
 bullet_transition_translate_x = 16px
+
+// Print wide
+@page
+  size: landscape
 
 // Fonts
 
@@ -76,12 +83,17 @@ article
     left: 0
     right: 0
     overflow: hidden
+    @media print
+      overflow: visible
+      position: static
     perspective: 600px
 
 .bespoke-slide
   position: absolute
   top: 0
   left: 0
+  @media print
+    position: static
   transition: all slide_transition_length slide_transition_easing
   transform-origin: 50% 50% ((slide_width / 2) * -1)
   backface-visibility: hidden
@@ -92,6 +104,9 @@ article
   text-align: center
   width: slide_width
   height: slide_height
+  @media print
+    height: slide_height_print
+    page-break-before: always // Aww yeah printing!
   background: slide_background
   padding: 40px
   border-radius: 0
@@ -101,9 +116,13 @@ article
 
 .bespoke-after
   transform: translateX(slide_transition_translate_x) rotateY(slide_transition_rotate_y)
+  @media print
+    transform: translateX(0) rotateY(0)
 
 .bespoke-inactive
   opacity: 0
+  @media print
+    opacity: 1
   pointer-events: none
 
 .bespoke-active
