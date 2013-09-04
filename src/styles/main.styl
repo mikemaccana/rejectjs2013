@@ -11,7 +11,7 @@ slide_height = 100%
 slide_background = darkgrey
 
 // This seems to be correspond with an A4, landscape page height in Chrome
-slide_height_print = 670px
+slide_height_print = 743px
 
 slide_transition_length = .6s
 slide_transition_easing = ease
@@ -25,6 +25,11 @@ bullet_transition_translate_x = 16px
 // Print wide
 @page
   size: landscape
+  margin: 0
+
+@media print
+  *
+    -webkit-print-color-adjust: exact
 
 // Fonts
 
@@ -107,7 +112,6 @@ article
   @media print
     height: slide_height_print
     page-break-before: always
-    border-bottom: 1px solid white
   background: slide_background
   padding: 40px
   border-radius: 0
