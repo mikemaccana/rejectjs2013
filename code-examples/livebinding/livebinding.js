@@ -1,36 +1,55 @@
 define(function(require){
-  var Ractive = require('ractive');
-  var template = require('text!template.mustache')
+  "use strict"
 
-  var testData = {
-    _user: 'Dave',
-    _messages: { total: 11, unread: 4 }
+  var Ractive = require('ractive');
+  var livebind = function(object, binding, properties){
+    properties.forEach(function(property){
+      var hiddenProperty = '_'+property
+      object[hiddenProperty] = object[property]
+      console.log('Set', hiddenProperty, 'to', object[property])
+      Object.defineProperty(object, property, {
+        get : function(){
+          return object[hiddenProperty];
+        },
+        set : function(newValue){
+          object[hiddenProperty] = newValue;
+          binding.set(property, newValue);
+        },
+        enumerable : true,
+        configurable : true
+      })
+    })
   }
 
+
+
+  var template = require('text!template.mustache')
+  var testData = {
+    user: 'Joe',
+    messages: { total: 121, unread: 28 }
+  }
   var demoBinding = new Ractive({
     el: '.demo',
     template: template,
     data: testData
   });
-
-  var livebind = function(object, binding, properties){
-    properties.forEach(function(property){
-      var hiddenProperty = '_'+property
-      Object.defineProperty(object, property, {
-        get : function(){ return testData[hiddenProperty]; },
-        set : function(newValue){
-          testData[hiddenProperty] = newValue;
-          binding.set(property, newValue)
-        },
-        enumerable : true,
-        configurable : true
-      });
-    })
-  }
-
   livebind(testData, demoBinding, ['user', 'messages'])
 
-  // testData.user = 'steve'
-  // testData.messages = { total: 11, unread: 8 }
+  var arraytemplate = require('text!arraytemplate.mustache')
+  var demoArray = ['one', 'two']
+  var arrayDemoBinding = new Ractive({
+    el: '.arraydemo',
+    template: arraytemplate,
+    data: { things: demoArray }
+  });
+  livebind(demoArray, arrayDemoBinding, [0])
+
   debugger;
+
+  testData.user = 'steve'
+  testData.messages = { total: 11, unread: 8 }
+
+  demoArray[0] = 'newonenew'
+  demoArray.push('wooo')
+
 })
