@@ -85,7 +85,7 @@ html
         ul
           li 1/3rd less code
           li Looks nice
-          li Functions more natural for JS iteration - no need for IIFE fix
+          li Functions are a more natural fit for iteration in Javascript than old-style for loops
 
       section
         h1 Let's do it for more things!
@@ -177,7 +177,7 @@ html
         h2 Two parts
         ol
           li A <strong>data → DOM binding</strong> (I like mustache, so I use <a href="http://www.ractivejs.org/">Ractive</a>).
-          li <strong>Object.defineProperty</strong> to call binding when data changes
+          li Data changes applied to binding immediately via <strong>object.defineProperty()</strong> accessors
 
       section
         h3 Live binding with defineProperty and Ractive
