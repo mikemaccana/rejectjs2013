@@ -5,7 +5,11 @@ define(function(require){
   var livebind = function(object, binding, properties){
     properties.forEach(function(property){
       var hiddenProperty = '_'+property
-      object[hiddenProperty] = object[property]
+      Object.defineProperty(object, hiddenProperty, {
+        enumerable : false,
+        writable: true,
+        value: object[property]
+      })
       console.log('Set', hiddenProperty, 'to', object[property])
       Object.defineProperty(object, property, {
         get : function(){
