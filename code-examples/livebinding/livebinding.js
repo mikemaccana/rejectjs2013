@@ -10,12 +10,12 @@ define(function(require){
         writable: true,
         value: object[property]
       })
-      console.log('Set', hiddenProperty, 'to', object[property])
       Object.defineProperty(object, property, {
         get : function(){
           return object[hiddenProperty];
         },
         set : function(newValue){
+          console.log('Setting', property, 'to', newValue)
           object[hiddenProperty] = newValue;
           binding.set(property, newValue);
         },
