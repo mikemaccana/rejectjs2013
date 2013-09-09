@@ -17,6 +17,8 @@ See the code-examples folder.
  * [Brenden Eich on Extending Inbuilts](http://vimeo.com/66711027)
  * [Agave - cleaner, simpler JS for ES5](http://agavejs.org)
  * [Ractive - simple mustache-based data binding ](http://ractivejs.org)
+ * [Kangax on Prototype chain injection](http://perfectionkills.com/how-ecmascript-5-still-does-not-allow-to-subclass-an-array/#wrappers_prototype_chain_injection)
+ * [Ember.JS protototype extensions](http://emberjs.com/guides/configuring-ember/disabling-prototype-extensions/)
 
 This is a [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)
 
