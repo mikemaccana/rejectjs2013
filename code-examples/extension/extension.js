@@ -1,5 +1,7 @@
 define(function(require){
-  var agave = require('agave')
+  var agave = require('agave'),
+    Ractive = require('ractive'),
+    html = require('text!extensiontemplate.mustache')
 
   agave.enable('rj');
 
@@ -13,10 +15,24 @@ define(function(require){
     }
   }
 
-  console.log(mockObject.rjgetPath('/baz/zar/zog'))
-  for ( var key in mockObject ) { console.log(key)}
+  var ractive = new Ractive({
+    el: '.extension',
+    template: html,
+    data: {
+      result: 'None',
+      size: 'unknown',
+      keys: null
+    }
+  });
 
-    debugger
+  var keys = [];
+  for ( var key in mockObject ) {
+    keys.push(key)
+  }
+
+  ractive.set( 'result', mockObject.rjgetPath('/baz/zar/zog') );
+  ractive.set( 'count', mockObject.rjgetSize() );
+  ractive.set( 'keys', keys );
 })
 
 

@@ -5,8 +5,19 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <h2>Extending native objects</h2>
-    <div class="message"></message>
+    <h1>Extending native objects</h1>
+    <pre>var mockObject = {
+  foo: 'bar',
+  baz: {
+    bam:'boo',
+    zar:{
+      zog:'something useful'
+    }
+  }
+}
+</pre>
+    <p>We've run agave.enable(rj)<p>
+    <div class="extension"></div>
     <script data-main="extension.js" src="require.js"></script>
   </body>
 </html>
