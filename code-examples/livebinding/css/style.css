@@ -1,0 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Seaweed Script', cursive;
+  color: #e43856;
+  font-size: 28pt;
+}

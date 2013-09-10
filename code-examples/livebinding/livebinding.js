@@ -29,7 +29,7 @@ define(function(require){
 
   var template = require('text!template.mustache')
   var testData = {
-    user: 'Joe',
+    user: 'Hello friend',
     messages: { total: 121, unread: 28 }
   }
   var demoBinding = new Ractive({
@@ -40,20 +40,24 @@ define(function(require){
   livebind(testData, demoBinding, ['user', 'messages'])
 
   var arraytemplate = require('text!arraytemplate.mustache')
-  var demoArray = ['one', 'two']
+  var demoArray = ['Drink Club Mate', 'Meet friendly strangers']
   var arrayDemoBinding = new Ractive({
     el: '.arraydemo',
     template: arraytemplate,
     data: { things: demoArray }
   });
-  livebind(demoArray, arrayDemoBinding, [0])
+  livebind(demoArray, arrayDemoBinding, [0, 1])
 
-  debugger;
+  setTimeout(function(){
+    debugger;
 
-  testData.user = 'steve'
-  testData.messages = { total: 11, unread: 8 }
+    testData.user = 'Volle Kanne, Hoschi'
+    testData.messages = { total: 11, unread: 8 }
 
-  demoArray[0] = 'newonenew'
-  demoArray.push('wooo')
+    demoArray[0] = 'Drink Vodka Mate'
+    demoArray[1] = 'Meet friendly strangers in the dark room at Berghain'
+    demoArray.push('Be cool and minimal. And minimalcool.')
+  }, 5000)
+
 
 })
