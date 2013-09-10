@@ -2,11 +2,19 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Seaweed Script', cursive;
+  color: rgb(228, 56, 86);
+  font-size: 28pt;
+}
+
 button {
   height: 200px;
   width: 200px;
   margin: 20px;
   background-size: auto 100%;
+  cursor: pointer;
+  border: none;
   &.Apparat {
     background-image: url('../apparat.jpg');
   }
@@ -18,3 +26,17 @@ button {
   }
 }
 
+.message {
+  opacity: 0.2;
+  transition: all 1s;
+}
+
+.new {
+  opacity: 1.0;
+  transition: all 1s;
+}
+
+a:link, a:visited, a:hover, a:active {
+  font-size: 10pt;
+  color: red;
+}
