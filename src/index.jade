@@ -5,6 +5,8 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title Welcome our new ES5 Overlords
 
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Seaweed+Script')
+
     //- Check out 'src/bower_components/prism/' for available themes
     link(rel='stylesheet', type='text/css', href='bower_components/prism/prism-funky.css')
 
@@ -15,13 +17,25 @@ html
     article
 
       section
+
+      section
         h1 Welcome our <br/><strong>new ES5 Overlords</strong>
 
       section
-        h1 Hello
+        h2 Hello
 
       section
-        h1 <strong>ES5</strong>
+        h2 A good time to talk about ES5
+        ul
+          li
+          li Every current browseer supports ES5
+          li Previous browser supports ES5
+          li In a few weeks every browser before that will support ES5
+          li Node is ES5
+          li IE8 may not be a requirement in your next project
+
+      section
+        h2 <strong>ES5</strong>
         ul
           li Some new methods
           li Which are convenient
@@ -31,7 +45,8 @@ html
         h1 There is <strong>magic</strong> in ES5
 
       section
-        h1 Some JS
+        h2 Some JS
+        p A list of German bands
         p Clicking the button should show the band name
         hr
         code.language-javascript
@@ -52,10 +67,9 @@ html
 
 
       section
-        h1 This code has two problems
-
-      section
+        h2 This code has two problems
         ul
+          li
           li Valeska from 'Boy' is actually Swiss
           li When the loop is finished, 'band' has the last value, and that's what the inner function 'sees'.
 
@@ -63,6 +77,7 @@ html
         h2 This means we can only see KraftKlub
         ul
           li
+          li We don't want to that
           li Felix is a poser
 
       section
@@ -84,7 +99,7 @@ html
             }
 
       section
-        h1 Same thing in ES5
+        h2 Same thing in ES5
         code.language-javascript
           pre.
             ['Apparat', 'Boy', 'Kraftklub'].forEach(function(band){
@@ -103,16 +118,16 @@ html
           li Functions are more 'natural' fit for JS than older 'for' loops
 
       section
-        h1 Let's do it for more things!
+        h2 Let's do it for more things!
 
       section
         h1 <strong>Safe</strong> Extension of Inbuilt Methods
 
       section
-        h1 No, <strong>really</strong>
+        h2 No, <strong>really</strong>
 
       section
-        h1 Quick History* Lesson
+        h2 Quick History* Lesson
         sub *History may be more recent than expected
 
       section
@@ -132,12 +147,12 @@ html
             function toString() { [native code] };
 
       section
-        h2 Added methods are always enumerable in ES3
+        h2 Added methods are <strong>always</strong> enumerable in ES3
         ul
-          li So they appear in 'for' loops
+          li So they <strong>always appear</strong> in 'for' loops
           li Extending prototypes in ES3 can work if the <strong>entire universe changes</strong> their 'for' loops
           li Surprisingly this not happen
-          li So don't extend prototypes in ES3
+          li So extending prototypes in ES3 is risky
 
       section
         h2 ES5: <strong>Non enumerable methods</strong> can be added
@@ -151,14 +166,17 @@ html
             for (var key in someObject) { console.log(key) };
 
       section
-        h1 Avoid generic names
+        h2 That's not the only problem
+
+      section
+        h2 Generic names
         p Past conflicts:
         ul
           li String.prototype.namespace()
           li Array.prototype.find()
 
       section
-        h1 Prefixing
+        h2 Prefixing
         p Set a sensible prefix
 
       section
@@ -204,7 +222,7 @@ html
             td No
 
       section
-        h2 Using ES5 defineProperty() and prefixing, Agave.JS has had no conflicts since it was created (early 2012).
+        h2 Using ES5 defineProperty() and prefixing, Agave.JS has had <strong>no</strong> conflicts since it was created (early 2012).
 
       section
         h2 Other reasons:
@@ -213,16 +231,16 @@ html
             h3 <i>"You can do that. You should do that."</i>
             author <a href="http://vimeo.com/66711027">Brendan Eich, JQuery UK, 19 Apr 2013</a>
           li
-            h3 <i>Ember JS does it.</i>
+            h3 Ember does it.
             author <a href="http://emberjs.com/guides/configuring-ember/disabling-prototype-extensions/">Ember JS Prototype Extensions</a>
           li
             h3 I just gave you a happy hippo.
 
       section
-        h1 More magic: Live Binding
+        h1 More magic: <strong>Live</strong> Binding
 
       section
-        h2 Two parts
+        h2 An experiment in two parts
         ol
           li A <strong>data → DOM binding</strong> (I like mustache, so I use <a href="http://www.ractivejs.org/">Ractive</a>).
           li Data changes applied to binding <strong>live</strong> via <strong>object.defineProperty()</strong>
@@ -257,13 +275,13 @@ html
         ul
           li For many, it's already here
           li Use ES5 methods directly
-          li Don't be scared to extend inbuilts
-          li Object.defineproperty is cooler than you think
+          li Don't be scared to extend native prototypes
+          li Experiment
 
       section
         h1 Thanks.
-        h2 Links to everything are on Twitter
-        p <a href="http://twitter.com/mikemaccana">@mikemaccana</a>
+        h2 <a href="http://twitter.com/mikemaccana">@mikemaccana</a>
+        h3 Enjoy the week
 
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')
     script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
