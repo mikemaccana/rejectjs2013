@@ -1,4 +1,7 @@
-<p>For reject.js 2013, we've run agave.enable(rj)<p>
-<p><label>mockObject.rjgetPath('/baz/zar/zog'): </label><input value="{{ result }}"/></p>
-<p><label>mockObject.rjgetSize(): </label><input value="{{{ count }}}"/></p>
-<p><label>Iterating over the object returns:</label><input value="{{#keys}}{{ . }} {{/keys}}"/></p>
+<p>For reject.js 2013, we've run <pre>agave.enable('rj')</pre><p>
+<div class="results">
+    So:
+    <p><label><pre>mockObject.rjgetPath('/baz/zar/zog')</pre> returns: </label><input value="{{ result }}"/></p>
+    But
+    <p><label><pre>for ( var key in mockObject )</pre>still only returns:</label><input value="{{#keys}}{{ . }} {{/keys}}"/></p>
+</div>

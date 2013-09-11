@@ -21,8 +21,6 @@ pre {
   border-left: 4px solid rgb(228, 56, 86);
   padding-left: 5px;
   white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
   font-family: monospace, serif;
   font-size: 16pt;
   width: 50%;
@@ -37,13 +35,19 @@ input {
   color: rgb(228, 56, 86);
 }
 
-h1, .extension, pre {
+h1, .extension, .mockobject {
   margin: 0 auto;
   width: 50%;
 }
 
 .extension {
-
+  .results {
+    opacity: 0;
+    &.shown {
+      opacity: 1;
+      transition: all 2s;
+    }
+  }
   label, input {
     width: 100%
   }

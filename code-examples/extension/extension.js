@@ -24,15 +24,19 @@ define(function(require){
       keys: null
     }
   });
-
+  ractive.set( 'result', mockObject.rjgetPath('/baz/zar/zog') );
+  ractive.set( 'count', mockObject.rjgetSize() );
   var keys = [];
   for ( var key in mockObject ) {
     keys.push(key)
   }
-
-  ractive.set( 'result', mockObject.rjgetPath('/baz/zar/zog') );
-  ractive.set( 'count', mockObject.rjgetSize() );
   ractive.set( 'keys', keys );
+
+  setTimeout(function(){
+    document.querySelector('.results').classList.add('shown')
+  }, 5 * 1000)
+
+
 })
 
 
