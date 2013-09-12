@@ -5,16 +5,24 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-    <h1>Extending native objects</h1>
+    <h1>Handing complex API responses</h1>
     <pre class="mockobject">var mockObject = {
-  foo: 'bar',
-  baz: {
-    bam:'boo',
-    zar:{
-      zog:'something useful'
-    }
+    some: 'times',
+    REST: 'JSON',
+    APIs: 'have a',
+    really: {
+      contrived: 'and',
+      long:{
+        paths:'something useful',
+        is:{
+          there:'but',
+          finding:'it',
+          can:'totally'
+        },
+      }
+    },
+    suck: ['bummer', 'dude']
   }
-}
 </pre>
     <div class="extension"></div>
     <script data-main="extension.js" src="require.js"></script>

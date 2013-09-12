@@ -6,13 +6,21 @@ define(function(require){
   agave.enable('rj');
 
   var mockObject = {
-    foo: 'bar',
-    baz: {
-      bam:'boo',
-      zar:{
-        zog:'something useful'
+    some: 'times',
+    REST: 'JSON',
+    APIs: 'have a',
+    really: {
+      contrived: 'and',
+      long:{
+        paths:'something useful',
+        is:{
+          there:'but',
+          finding:'it',
+          can:'totally'
+        },
       }
-    }
+    },
+    suck: ['bummer', 'dude']
   }
 
   var ractive = new Ractive({
@@ -24,7 +32,7 @@ define(function(require){
       keys: null
     }
   });
-  ractive.set( 'result', mockObject.rjgetPath('/baz/zar/zog') );
+  ractive.set( 'result', mockObject.rjgetPath('/really/long/paths') );
   ractive.set( 'count', mockObject.rjgetSize() );
   var keys = [];
   for ( var key in mockObject ) {
@@ -32,8 +40,8 @@ define(function(require){
   }
   ractive.set( 'keys', keys );
 
-  setTimeout(function(){
-    document.querySelector('.results').classList.add('shown')
+  window.setTimeout(function(){
+    window.document.querySelector('.results').classList.add('shown')
   }, 5 * 1000)
 
 
