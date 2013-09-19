@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Welcome our new ES5 Overlords</title><link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Seaweed+Script"><link rel="stylesheet" type="text/css" href="bower_components/prism/prism-funky.css"><link rel="stylesheet" type="text/css" href="styles/main.css"></head><body><article><section><h1>Welcome our <br/><strong>new ES5 Overlords</strong></h1></section><section><h2>Hello</h2></section><section><h2>A good time to talk about ES5</h2><ul><li></li><li><strong>Every current browser</strong> supports ES5</li><li><strong>Every previous generation</strong> browser supports ES5</li><li>In a few weeks <strong>every browser before that</strong> will support ES5</li><li>Node is ES5</li><li>IE8 may not be a requirement in your next project</li></ul></section><section><h2><strong>ES5</strong></h2><ul><li>Some new methods</li><li>Which are convenient</li><li>That we ignore</li></ul></section><section><h1>There is <strong>magic</strong> in ES5</h1></section><section><h2>Some JS</h2><p>A list of German bands</p><p>Clicking the button should show the band name</p><hr><code class="language-javascript"><pre>var bands = ['Apparat', 'Boy', 'Kraftklub'];
+for (var i = 0; i &lt; bands.length; i++) {
+  var band = bands[i],
+    button = document.createElement('button');
+  button.appendChild(document.createTextNode(band));
+  button.addEventListener('click', function(){
+    alert(band);
+  });
+  document.body.appendChild(button);
+}
+
+</pre></code></section><section><h2>This code has two problems</h2><ul><li></li><li>Valeska from 'Boy' is actually Swiss</li><li>When the loop is finished, 'band' has the last value, and that's what the inner function 'sees'.</li></ul></section><section><h2>This means we can only see KraftKlub</h2><ul><li></li><li>We don't want to that</li><li>Felix is a poser</li></ul></section><section><h2>Some basic JS (fixed)</h2><hr><code class="language-javascript"><pre>var bands = ['Apparat', 'Boy', 'Kraftklub'];
+for (var i = 0; i &lt; bands.length; i++) {
+  var band = bands[i],
+    button = document.createElement('button');
+  button.appendChild(document.createTextNode(band));
+  (function(band){
+    button.addEventListener('click', function(){
+      alert(band);
+    });
+  })(band);
+  document.body.appendChild(button);
+}
+</pre></code></section><section><h2>Same thing in ES5</h2><code class="language-javascript"><pre>['Apparat', 'Boy', 'Kraftklub'].forEach(function(band){
+  var button = document.createElement('button');
+  button.appendChild(document.createTextNode(band));
+  button.addEventListener('click', function(){
+    alert(band);
+  });
+  document.body.appendChild(button);
+})
+</pre></code></section><section><ul><li>1/3rd less code</li><li>Looks nice</li><li>Functions are more 'natural' fit for JS than older 'for' loops</li></ul></section><section><h2>Let's do it for more things!</h2></section><section><h1><strong>Safe</strong> Extension of Inbuilt Methods</h1></section><section><h2>No, <strong>really</strong></h2></section><section><h2>Quick History* Lesson</h2><sub>*History may be more recent than expected</sub></section><section><h2>ES3: Non-native methods appear during iteration</h2><code class="language-javascript"><pre>Object.prototype.oldStyleMethod = function oldStyleMethod (){};
+var someObject = {};
+for (var key in someObject) { console.log(key) };
+</pre></code></section><section><h2>ES3: But native methods don't</h2><p>This is why toString() doesn't appear in 'for' loops.</p><code class="language-javascript"><pre>console.log(Object.prototype.toString);
+function toString() { [native code] };
+</pre></code></section><section><h2>Added methods are <strong>always</strong> enumerable in ES3</h2><ul><li>So they <strong>always appear</strong> in 'for' loops</li><li>Extending prototypes in ES3 can work if the <strong>entire universe changes</strong> their 'for' loops</li><li>Surprisingly this not happen</li><li>So extending prototypes in ES3 is risky</li></ul></section><section><h2>ES5: <strong>Non enumerable methods</strong> can be added</h2><p>Requires native ES5 (not shimmable)</p><code class="language-javascript"><pre>Object.defineProperty( Object.prototype, &quot;newStyleMethod&quot;, {
+  value: function newStyleMethod(){},
+  enumerable: false
+});
+for (var key in someObject) { console.log(key) };
+</pre></code></section><section><h2>That's not the only problem</h2></section><section><h2>Generic names</h2><p>Past conflicts:</p><ul><li>String.prototype.namespace()</li><li>Array.prototype.find()</li></ul></section><section><h2>Prefixing</h2><p>Set a sensible prefix</p></section><section><table><tr><td></td><td>Underscore</td><td>Sugar</td></tr><tr><td>Methods</td><td>No</td><td>Yes</td></tr><tr><td>Regular 'for' loops</td><td>Yes</td><td>No</td></tr><tr><td>Conflict-free</td><td>Yes</td><td>No</td></tr></table></section><section><table><tr><td></td><td>Underscore</td><td><strong>Agave (ES5 only)</strong></td><td>Sugar</td></tr><tr><td>Methods</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Regular 'for' loops</td><td>Yes</td><td>Yes</td><td>No</td></tr><tr><td>Conflict-free</td><td>Yes</td><td>Yes</td><td>No</td></tr></table></section><section><h2>Using ES5 defineProperty() and prefixing, Agave.JS has had <strong>no</strong> conflicts since it was created (early 2012).</h2></section><section><h2>Other reasons:</h2><ul><li><h3><i>"You can do that. You should do that."</i></h3><author><a href="http://vimeo.com/66711027">Brendan Eich, JQuery UK, 19 Apr 2013</a></author></li><li><h3>Ember does it.</h3><author><a href="http://emberjs.com/guides/configuring-ember/disabling-prototype-extensions/">Ember JS Prototype Extensions</a></author></li><li><h3>I just gave you a happy hippo and now we are friends.</h3></li></ul></section><section><h1>More magic: <strong>Live</strong> Binding</h1></section><section><h2>An experiment in two parts</h2><ol><li>A <strong>data → DOM binding</strong> (I like mustache, so I use <a href="http://www.ractivejs.org/">Ractive</a>).</li><li>Data changes applied to binding <strong>live</strong> via <strong>object.defineProperty()</strong></li></ol></section><section><h3>Live binding with defineProperty</h3><code class="language-javascript"><pre>var livebind = function(object, binding, properties){
+  properties.forEach(function(property){
+    var hiddenProperty = '_'+property
+    Object.defineProperty(object, property, {
+      get: function(){ return testData[hiddenProperty]; },
+      set: function(newValue){
+        testData[hiddenProperty] = newValue;
+        binding.set(property, newValue)
+      },
+      enumerable: true,
+      configurable: true
+    });
+  })
+}
+</pre></code></section><section><h2>Note</h2><ol><li>This is an experiment</li><li>We also use prototype chain injection (see links) for array.length magic</li></ol></section><section><h1><strong>ES5-only</strong> is coming</h1><ul><li>For many, it's already here</li><li>Use ES5 methods directly</li><li>Don't be scared to extend native prototypes</li><li>Experiment</li></ul></section><section><h1>Thanks.</h1><h2><a href="http://twitter.com/mikemaccana">@mikemaccana</a></h2><h3>Enjoy the week</h3></section></article><script src="bower_components/bespoke.js/dist/bespoke.min.js"></script><script src="bower_components/bespoke-bullets/dist/bespoke-bullets.min.js"></script><script src="bower_components/bespoke-hash/dist/bespoke-hash.min.js"></script><script src="bower_components/bespoke-state/dist/bespoke-state.min.js"></script><script src="bower_components/prism/prism.js"></script><script src="scripts/main.js"></script></body></html>
